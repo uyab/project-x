@@ -86,6 +86,6 @@ class MissionControl
 
     public function incomplete(Mission $mission, User $owner)
     {
-        //
+        // it's empty because skeleton
     }
 }

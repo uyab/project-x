@@ -31,11 +31,11 @@ class MissionController extends Controller
 
     public function bid()
     {
-        //
+        // it's empty because skeleton
     }
 
     public function cancelBid()
     {
-        //
+        // it's empty because skeleton
     }
 }

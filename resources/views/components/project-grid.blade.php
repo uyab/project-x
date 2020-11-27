@@ -5,7 +5,7 @@
                 url="{{ route('mission.show', $mission) }}"
                 title="{{ $mission->title }}"
                 content="{{ $mission->excerpt }}"
-                meta.before="<i aria-hidden="true" class='icon coins yellow'></i> {{ readable_number($mission->reward) }}"
+                meta.before="<i aria-hidden='true' class='icon coins yellow'></i> {{ readable_number($mission->reward) }}"
         >
             <x-slot name="body">
                 <div class="extra content">

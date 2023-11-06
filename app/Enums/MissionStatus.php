@@ -14,5 +14,7 @@ final class MissionStatus extends Enum
 
     const COMPLETED = 'COMPLETED';
 
+    const CANCELED = 'CANCELED';
+
     const CLOSED = 'CLOSED';
 }

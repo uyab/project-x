@@ -84,6 +84,30 @@ class MissionControl
         });
     }
 
+    public function cancel(Mission $mission, User $owner)
+    {
+        if (!in_array($mission->status, [\App\Enums\MissionStatus::PUBLISHED, \App\Enums\MissionStatus::ONPROGRESS])) {
+            throw new \DomainException("Mission {$mission->status} cannot be canceled");
+        }
+
+        DB::transaction(function () use ($mission) {
+            $mission->status = MissionStatus::CANCELED;
+            $mission->save();
+        });
+    }
+
+    public function publish(Mission $mission, User $owner)
+    {
+        if ($mission->status != \App\Enums\MissionStatus::CANCELED) {
+            throw new \DomainException("Mission {$mission->status} cannot be published");
+        }
+
+        DB::transaction(function () use ($mission) {
+            $mission->status = MissionStatus::PUBLISHED;
+            $mission->save();
+        });
+    }
+
     public function incomplete(Mission $mission, User $owner)
     {
     }

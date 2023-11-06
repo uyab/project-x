@@ -10,6 +10,8 @@ Route::get('/dashboard', \App\Http\Controllers\Dashboard::class)->name('dashboar
     Route::put('mission/{mission}/winner/{user}', \App\Http\Controllers\Mission\SetWinner::class)->name('mission.winner');
     Route::put('mission/{mission}/complete', \App\Http\Controllers\Mission\Complete::class)->name('mission.complete');
     Route::put('mission/{mission}/close', \App\Http\Controllers\Mission\Close::class)->name('mission.close');
+    Route::put('mission/{mission}/cancel', \App\Http\Controllers\Mission\Cancel::class)->name('mission.cancel');
+    Route::put('mission/{mission}/publish', \App\Http\Controllers\Mission\Publish::class)->name('mission.publish');
     Route::put('mission/{mission}/incomplete', \App\Http\Controllers\Mission\Incomplete::class)->name('mission.incomplete');
 
     Route::resource('training', \App\Http\Controllers\TrainingController::class);

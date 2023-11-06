@@ -125,4 +125,17 @@
         @endif
     </x-panel>
 
+    <x-panel title="Housekeeping">
+        @if(in_array($mission->status, [\App\Enums\MissionStatus::PUBLISHED, \App\Enums\MissionStatus::ONPROGRESS]))
+            {!! form()->put(route('mission.cancel', $mission)) !!}
+            {!! form()->submit('Cancel Mission')->addClass('red basic') !!}
+            {!! form()->close() !!}
+        @endif
+        @if($mission->status === \App\Enums\MissionStatus::CANCELED)
+            {!! form()->put(route('mission.publish', $mission)) !!}
+            {!! form()->submit('Republish Mission')->addClass('black basic') !!}
+            {!! form()->close() !!}
+        @endif
+    </x-panel>
+
 @stop
